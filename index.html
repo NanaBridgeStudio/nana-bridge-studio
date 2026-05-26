@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Webマーケター</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --white: #FAF7F2;
+    --warm-gray: #EDE8DF;
+    --charcoal: #5C4E3D;
+    --rose: #B5808F;
+    --rose-pale: #F0E4E8;
+    --olive: #9B8DB0;
+    --olive-pale: #EAE6F2;
+    --text: #2E2A24;
+    --text-mid: #6B6258;
+    --text-light: #9A9188;
+    --border: #DDD8CE;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; font-weight: 400; }
+
+  nav {
+    position: fixed; top: 0; width: 100%; background: rgba(245,240,232,0.95);
+    backdrop-filter: blur(8px); z-index: 100; border-bottom: 1px solid var(--border); padding: 0 2rem;
+  }
+  .nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-logo { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: var(--charcoal); }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.83rem; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-cta {
+    display: inline-block; background: var(--rose); color: #ffffff;
+    padding: 0.45rem 1.2rem; border-radius: 100px; font-size: 0.8rem; font-weight: 700;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; color: #ffffff; }
+  .nav-cta:hover { opacity: 0.85; }
+  .nav-lang {
+    font-size: 0.78rem; color: var(--text-mid); border: 1px solid var(--border);
+    padding: 0.25rem 0.8rem; border-radius: 100px; text-decoration: none; transition: all 0.2s;
+  }
+  .nav-lang:hover { background: var(--charcoal); color: white; border-color: var(--charcoal); }
+
+  section { padding: 80px 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  #hero { min-height: 100vh; display: flex; align-items: center; background: var(--cream); padding-top: 120px; }
+  .hero-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-tag {
+    display: inline-block; border: 1px solid var(--border); color: var(--text-mid);
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.2rem;
+  }
+  .hero h1 { font-family: 'Noto Serif JP', serif; font-size: 2.4rem; font-weight: 700; line-height: 1.45; margin-bottom: 1.2rem; color: var(--charcoal); }
+  .hero h1 span { color: var(--rose); }
+  .hero p { color: var(--text); font-size: 1rem; margin-bottom: 2rem; line-height: 1.9; font-weight: 400; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    display: inline-block; background: var(--rose); color: #fff;
+    padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none;
+    font-weight: 500; font-size: 0.9rem; transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-outline {
+    display: inline-block; border: 1.5px solid var(--charcoal); color: var(--charcoal);
+    padding: 0.8rem 1.8rem; border-radius: 100px; text-decoration: none;
+    font-weight: 500; font-size: 0.9rem; transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--charcoal); color: white; }
+
+  .hero-visual {
+    background: var(--charcoal); border-radius: 24px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 2rem 1.5rem; gap: 1.4rem;
+  }
+  .hero-visual-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?fm=jpg&q=60&w=800&auto=format&fit=crop') center/cover no-repeat;
+    opacity: 0.1;
+  }
+  .hero-profile {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center; gap: 1rem; width: 100%;
+  }
+  .hero-cards {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; width: 100%;
+  }
+  .hero-card-item {
+    background: var(--white); border-radius: 10px; padding: 0.6rem 0.8rem;
+    font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;
+    box-shadow: 0 2px 12px rgba(46,42,36,0.15); line-height: 1.3;
+  }
+  .hero-card-item span { font-size: 0.95rem; flex-shrink: 0; }
+  .avatar-circle { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem; overflow: hidden; border: 3px solid rgba(255,255,255,0.2); }
+  .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-name { font-family: 'Noto Serif JP', serif; font-size: 1.1rem; color: var(--white); }
+  .hero-title { font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem; font-weight: 300; }
+  .float-card {
+    position: absolute; background: var(--white); border-radius: 12px; padding: 0.6rem 1rem;
+    box-shadow: 0 4px 24px rgba(46,42,36,0.18); font-size: 0.78rem; font-weight: 500;
+  }
+  .float-card.card1 { top: 24px; right: 20px; color: var(--olive); }
+  .float-card.card2 { bottom: 24px; left: 20px; color: var(--rose); }
+  .float-card.card3 { bottom: 80px; right: 20px; color: var(--text-mid); }
+  .float-card span { font-size: 1rem; display: block; }
+
+  .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.8rem; display: block; }
+  .section-title { font-family: 'Noto Serif JP', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--charcoal); line-height: 1.4; }
+  .section-sub { color: var(--text); font-size: 0.95rem; max-width: 540px; line-height: 1.8; font-weight: 400; }
+
+  #services { background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+  .service-card {
+    background: var(--cream); border-radius: 16px; padding: 1.6rem;
+    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(92,78,61,0.08); }
+  .service-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .service-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--charcoal); }
+  .service-card > p { color: var(--text); font-size: 0.82rem; line-height: 1.7; flex: 1; font-weight: 400; }
+  .service-price { margin-top: 0.9rem; padding: 0.5rem 0.8rem; background: var(--olive-pale); border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: var(--olive); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+  .skill-tag { background: var(--warm-gray); border: 1px solid var(--border); color: var(--text-mid); padding: 0.22rem 0.65rem; border-radius: 100px; font-size: 0.72rem; }
+  .service-case { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border); }
+  .service-case-label { font-size: 0.68rem; font-weight: 700; color: var(--olive); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .service-case p { font-size: 0.78rem; color: var(--text-mid); line-height: 1.6; }
+  .service-case strong { color: var(--rose); font-weight: 600; }
+  .services-cta { margin-top: 3rem; background: var(--charcoal); border-radius: 20px; padding: 2.4rem 2rem; text-align: center; }
+  .services-cta p { color: rgba(255,255,255,0.9); font-size: 0.95rem; margin-bottom: 1.4rem; line-height: 1.8; font-weight: 400; }
+  .services-cta p strong { color: white; font-weight: 600; }
+  .btn-cta { display: inline-block; background: var(--rose); color: #fff; padding: 0.9rem 2.4rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: opacity 0.2s; }
+  .btn-cta:hover { opacity: 0.85; }
+  .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.9rem; }
+
+  #works { background: var(--cream); }
+  .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+  .work-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--white); transition: transform 0.2s, box-shadow 0.2s; }
+  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(92,78,61,0.08); }
+  .work-header { padding: 1.4rem 1.5rem 1rem; }
+  .work-header.h-rose { background: var(--rose-pale); }
+  .work-header.h-olive { background: var(--olive-pale); }
+  .work-cat { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .work-cat.c-rose { color: var(--rose); }
+  .work-cat.c-olive { color: var(--olive); }
+  .work-header h3 { font-size: 0.92rem; font-weight: 500; line-height: 1.5; color: var(--charcoal); }
+  .work-body { padding: 1.2rem 1.5rem 1.5rem; }
+  .work-body p { color: var(--text); font-size: 0.83rem; line-height: 1.8; margin-bottom: 1rem; font-weight: 400; }
+  .work-stats { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  .stat-num { font-family: 'Noto Serif JP', serif; font-size: 1.5rem; font-weight: 400; color: var(--rose); display: block; line-height: 1; }
+  .stat-label { font-size: 0.68rem; color: var(--text-light); margin-top: 0.3rem; }
+
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .about-img { border-radius: 20px; height: 360px; overflow: hidden; background: url('https://images.unsplash.com/photo-1656660364352-3a504c39bde2?fm=jpg&q=60&w=600&auto=format&fit=crop') center/cover no-repeat; }
+  .about-text p { color: var(--text); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.9; font-weight: 400; }
+  .about-text strong { color: var(--charcoal); font-weight: 600; }
+  .about-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .badge { background: var(--cream); border: 1px solid var(--border); color: var(--text-mid); padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.78rem; }
+
+  #contact { background: var(--rose-pale); text-align: center; }
+  #contact .section-label { color: var(--rose); }
+  #contact .section-title { color: var(--charcoal); margin: 0 auto 0.6rem; }
+  #contact .section-sub { color: var(--text-mid); margin: 0 auto 2rem; }
+  .btn-rose { display: inline-block; background: var(--rose); color: white; padding: 0.9rem 2.4rem; border-radius: 100px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: opacity 0.2s; }
+  .btn-rose:hover { opacity: 0.85; }
+  .contact-note { margin-top: 1.2rem; font-size: 0.8rem; color: var(--text-light); }
+  .contact-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2rem; }
+  .contact-tag { background: white; color: var(--text-mid); padding: 0.35rem 1rem; border-radius: 100px; font-size: 0.8rem; border: 1px solid var(--border); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.3); text-align: center; padding: 2rem; font-size: 0.78rem; }
+
+  @media (max-width: 768px) {
+    /* NAV */
+    nav { padding: 0 1rem; }
+    .nav-logo { font-size: 0.9rem; }
+    .nav-links { gap: 0.8rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .nav-cta { display: none; }
+    .nav-lang { font-size: 0.72rem; padding: 0.2rem 0.6rem; }
+
+    /* SECTIONS */
+    section { padding: 56px 1.2rem; }
+
+    /* HERO */
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero h1 { font-size: 1.9rem; line-height: 1.4; }
+    .hero p { font-size: 0.95rem; }
+    .hero-btns { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-outline { text-align: center; font-size: 0.9rem; }
+    .hero-visual { height: 320px; order: -1; }
+    .float-card { font-size: 0.7rem; padding: 0.45rem 0.7rem; }
+    .float-card span { font-size: 0.85rem; }
+
+    /* SECTION HEADERS */
+    .section-title { font-size: 1.5rem; }
+    .section-sub { font-size: 0.88rem; }
+
+    /* SERVICES */
+    .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .service-card { padding: 1.3rem; }
+    .service-card h3 { font-size: 0.95rem; }
+    .service-card > p { font-size: 0.85rem; }
+    .services-cta { padding: 1.8rem 1.2rem; }
+    .services-cta p { font-size: 0.88rem; }
+    .btn-cta { font-size: 0.9rem; padding: 0.8rem 1.8rem; }
+
+    /* WORKS */
+    .works-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .work-header h3 { font-size: 0.9rem; }
+    .work-body p { font-size: 0.85rem; }
+    .stat-num { font-size: 1.3rem; }
+    .stat-label { font-size: 0.7rem; }
+
+    /* ABOUT */
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-img { height: 260px; }
+    .about-text p { font-size: 0.88rem; }
+    .about-badges { gap: 0.4rem; }
+    .badge { font-size: 0.75rem; padding: 0.3rem 0.75rem; }
+
+    /* CONTACT */
+    #contact .section-title { font-size: 1.4rem; }
+    #contact .section-sub { font-size: 0.88rem; }
+    .contact-tags { gap: 0.4rem; }
+    .contact-tag { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+    .btn-rose { font-size: 0.9rem; padding: 0.8rem 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Nana Bridge Studio</div>
+
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://forms.gle/Yf3BjeX7rZm58FEN9" target="_blank" class="nav-cta" style="color: #ffffff;">無料相談する</a></li>
+    </ul>
+    <a href="/en/index.html" class="nav-lang">English</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner container">
+    <div class="hero-text">
+      <div class="hero-tag">Webマーケター / フリーランス</div>
+      <h1>あなたのビジネスの、<br><span>集客ブリッジ。</span></h1>
+      <p>広告もLPも集客導線も、全部まかせて本業に集中できる。<br>「何から始めればいいかわからない」から、<br>一緒に整えます。英語対応可。</p>
+      <div class="hero-btns">
+        <a href="https://forms.gle/Yf3BjeX7rZm58FEN9" target="_blank" class="btn-primary">無料相談する →</a>
+        <a href="#works" class="btn-outline">実績を見る</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-bg"></div>
+      <div class="hero-profile">
+        <div class="avatar-circle">
+          <img src="https://erihauck.com/service/wp-content/uploads/2026/04/Screenshot-2025-06-14-at-12.46.50.png" alt="Profile photo">
+        </div>
+        <div>
+          <div class="hero-name">大庭 菜々</div>
+          <div class="hero-title">Webマーケター</div>
+        </div>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-card-item" style="color:var(--rose);"><span>🚀</span>売上 1ヶ月で4倍</div>
+        <div class="hero-card-item" style="color:var(--olive);"><span>📊</span>CPA 半減実績あり</div>
+        <div class="hero-card-item" style="color:var(--charcoal);"><span>💼</span>起業家の集客をまるっと</div>
+        <div class="hero-card-item" style="color:var(--text-mid);"><span>🌏</span>英語対応可</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <span class="section-label">Services</span>
+    <h2 class="section-title">提供サービス</h2>
+    <p class="section-sub">個人起業家に必要な集客の軸を、まとめて任せてもらえます。</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">📣</span>
+        <h3>広告運用代行</h3>
+        <p>広告の設計〜運用〜改善まで一貫して対応。数字を毎日追いながら、成果につながる配信を目指します。初めての方も丁寧にご説明します。</p>
+        <div class="service-price">月額 6万円〜</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Google広告</span>
+          <span class="skill-tag">Yahoo!広告</span>
+          <span class="skill-tag">Meta広告</span>
+          <span class="skill-tag">KPI設計</span>
+          <span class="skill-tag">ABテスト</span>
+        </div>
+        <div class="service-case">
+          <div class="service-case-label">実績例</div>
+          <p>介護サービス：<strong>CPA 3ヶ月で半減</strong><br>サブスク：<strong>売上 1ヶ月で4倍</strong></p>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌐</span>
+        <h3>集客まるごとサポート</h3>
+        <p>広告・SNS・Google Map・LINE・LPまで、集客に必要な仕組みをゼロから構築。「何から手をつければいいか」という段階からご相談いただけます。英語対応可。</p>
+        <div class="service-price">内容によりお見積もり</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ファネル設計</span>
+          <span class="skill-tag">LINE公式</span>
+          <span class="skill-tag">UTAGE</span>
+          <span class="skill-tag">GBP</span>
+          <span class="skill-tag">SNS運用DX</span>
+        </div>
+        <div class="service-case">
+          <div class="service-case-label">実績例</div>
+          <p>海外歯科医院：<strong>開院前から集客導線をゼロ構築</strong>、新患が継続的に集まる仕組みを実現</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📄</span>
+        <h3>LPコンサル</h3>
+        <p>「LP作ったのに問い合わせが来ない」その原因を分析し、改善の優先順位と具体的な修正案をご提案。制作実務は提携デザイナーとの連携も可能です。</p>
+        <div class="service-price">3万円〜</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LP診断</span>
+          <span class="skill-tag">導線設計</span>
+          <span class="skill-tag">ライティング</span>
+          <span class="skill-tag">CVR改善</span>
+        </div>
+        <div class="service-case">
+          <div class="service-case-label">実績例</div>
+          <p>ECサイト：<strong>離脱ポイントを特定し導線を改善</strong>、購入率アップに貢献</p>
+        </div>
+      </div>
+    </div>
+    <div class="services-cta">
+      <p><strong>まず、あなたのビジネスの現状を一緒に整理しませんか？</strong><br>初回面談（60分・無料）で課題を整理し、最適なプランとお見積もりをご提案します。</p>
+      <a href="https://forms.gle/Yf3BjeX7rZm58FEN9" target="_blank" class="btn-cta">無料で課題を整理する →</a>
+      <p class="cta-note">Google Meet / 初回60分無料</p>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="container">
+    <span class="section-label">Works</span>
+    <h2 class="section-title">実績</h2>
+    <p class="section-sub">数字で語れる成果を、わかりやすくまとめました。</p>
+    <div class="works-grid">
+      <div class="work-card">
+        <div class="work-header h-olive">
+          <div class="work-cat c-olive">広告運用</div>
+          <h3>お客様を獲得するコストが、3ヶ月で半分になった</h3>
+        </div>
+        <div class="work-body">
+          <p>全国に店舗を持つ介護サービス会社の広告運用を担当。データを毎日見ながら改善を重ね、3ヶ月で1件あたりの獲得コストを半減。半年後には目標の問い合わせ件数を達成しました。</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">1/2</span><span class="stat-label">CPA 3ヶ月で半減</span></div>
+            <div class="stat"><span class="stat-num">達成</span><span class="stat-label">半年で目標獲得件数</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-header h-rose">
+          <div class="work-cat c-rose">集客まるごとサポート</div>
+          <h3>開院前から、集客の仕組みをゼロから作った</h3>
+        </div>
+        <div class="work-body">
+          <p>海外で新規開業する日本人歯科医師の集客を、オープン前からトータルサポート。広告・SNS・Googleマップ・LINE導線・LPまで一貫して担当し、英語での広告配信にも対応。新患が継続的に集まる仕組みを構築しました。</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">0→</span><span class="stat-label">ゼロからの導線構築</span></div>
+            <div class="stat"><span class="stat-num">🌏</span><span class="stat-label">英語対応・海外展開</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-header h-olive">
+          <div class="work-cat c-olive">広告運用</div>
+          <h3>1ヶ月で売上4倍。翌月さらに4倍。</h3>
+        </div>
+        <div class="work-body">
+          <p>日本市場向けWebコンテンツのサブスクサービスの広告運用を担当。運用開始からわずか1ヶ月で集客数・売上ともに4倍を達成。翌月にはさらにそこから4倍という成果に。仮説→改善→検証のサイクルを高速で回した結果です。</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">×4</span><span class="stat-label">1ヶ月で売上4倍</span></div>
+            <div class="stat"><span class="stat-num">×16</span><span class="stat-label">2ヶ月累計</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-header h-rose">
+          <div class="work-cat c-rose">LPコンサル</div>
+          <h3>「売れないLP」には、必ず理由がある</h3>
+        </div>
+        <div class="work-body">
+          <p>ECサイトのLPを診断し、「なぜ訪問者が買わずに離脱するのか」を分析。お客様がLPに辿り着いてから購入するまでの導線を整理し、改善の優先順位と具体的な修正案をご提案しました。</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">📋</span><span class="stat-label">導線設計・改善提案</span></div>
+            <div class="stat"><span class="stat-num">↑</span><span class="stat-label">購入率改善に貢献</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">わたしについて</h2>
+    <p class="section-sub">現場で積み上げてきた、実務ベースの視点でサポートします。</p>
+    <div class="about-grid">
+      <div class="about-img"></div>
+      <div class="about-text">
+        <p>日本の田舎で育ち、東京・バンコク・シンガポールでビジネスを経験してきました。英語は海外実務で身につけました。スペイン語も少し話せます。</p>
+        <p>あるできごとをきっかけに、<strong>「一番楽しい今日」を胸に生きる</strong>ことにしました。それからは南米をバックパックで一周したり、新たなビジネスの構想をしたり、自分の手で作る人生を歩んでいます。</p>
+        <p>あなたのビジネスのゴールまで伴走できる存在でありたいと思っています。あなたのビジネスの世界観を大切にしながら、数字を一緒に読みながら、同じ方向を向いて、誠実に取り組んでいきます。</p>
+        <div class="about-badges">
+          <span class="badge">🌏 東京・バンコク・シンガポール</span>
+          <span class="badge">🎷 サックス奏者</span>
+          <span class="badge">🌎 南米バックパッカー</span>
+          <span class="badge">🗣️ 英語・スペイン語対応</span>
+          <span class="badge">💼 元トップ営業</span>
+          <span class="badge">🎨 元Webデザイナー</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">まずは気軽に話しかけてください</h2>
+    <p class="section-sub">「相談していいのかな」と思ったとき、それが動き出すタイミングです。メッセージだけでも、ぜひ。</p>
+    <div class="contact-tags">
+      <span class="contact-tag">✅ はじめての広告、大歓迎</span>
+      <span class="contact-tag">✅ ビジネス全体を見てほしい方</span>
+      <span class="contact-tag">✅ 英語対応が必要な方</span>
+      <span class="contact-tag">✅ 何から始めるか整理したい方</span>
+    </div>
+    <a href="https://forms.gle/Yf3BjeX7rZm58FEN9" target="_blank" class="btn-rose">お問い合わせフォームへ →</a>
+    <p class="contact-note">※返信は通常1営業日以内にお送りします</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 YOUR NAME. All rights reserved. · <a href="/en" style="color:rgba(255,255,255,0.3);">English</a></p>
+</footer>
+</body>
+</html>

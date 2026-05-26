@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Market Ads Specialist | Google, Yahoo Japan & Meta Ads</title>
+<meta name="description" content="Bilingual Japan market ads specialist helping international businesses grow in Japan through Google Ads, Yahoo Japan Ads, Meta Ads, localisation, and conversion-focused marketing strategy. English-speaking. Based in Japan.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --white: #FAF7F2;
+    --warm-gray: #EDE8DF;
+    --charcoal: #5C4E3D;
+    --rose: #B5808F;
+    --rose-pale: #F0E4E8;
+    --sage: #9B8DB0;
+    --sage-pale: #EAE6F2;
+    --text: #2E2A24;
+    --text-mid: #6B6258;
+    --text-light: #9A9188;
+    --border: #DDD8CE;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; width: 100%; background: rgba(245,240,232,0.95);
+    backdrop-filter: blur(8px); z-index: 100; border-bottom: 1px solid var(--border); padding: 0 2rem;
+  }
+  .nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--charcoal); }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.83rem; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-links li { list-style: none; }
+  a.nav-cta, a.nav-cta:link, a.nav-cta:visited, a.nav-cta:hover, a.nav-cta:active {
+    display: inline-block; background: var(--rose); color: #ffffff;
+    padding: 0.45rem 1.2rem; border-radius: 100px; font-size: 0.8rem; font-weight: 700;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  a.nav-cta:hover { opacity: 0.85; }
+  .nav-cta:hover { opacity: 0.85; }
+  .nav-lang { font-size: 0.78rem; color: var(--text-mid); border: 1px solid var(--border); padding: 0.25rem 0.8rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+  .nav-lang:hover { background: var(--charcoal); color: white; border-color: var(--charcoal); }
+
+  section { padding: 80px 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  #hero { min-height: 100vh; display: flex; align-items: center; background: var(--cream); padding-top: 120px; }
+  .hero-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-tag {
+    display: inline-block; border: 1px solid var(--border); color: var(--text-mid);
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.2rem;
+  }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: 2.8rem; font-weight: 400; line-height: 1.25; margin-bottom: 1.2rem; color: var(--charcoal); }
+  .hero h1 span { color: var(--rose); font-style: italic; }
+  .hero p { color: var(--text-mid); font-size: 1rem; margin-bottom: 2rem; line-height: 1.9; font-weight: 300; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    display: inline-block; background: var(--rose); color: #fff;
+    padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none;
+    font-weight: 500; font-size: 0.9rem; transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.8; }
+  .btn-outline {
+    display: inline-block; border: 1.5px solid var(--charcoal); color: var(--charcoal);
+    padding: 0.85rem 1.8rem; border-radius: 100px; text-decoration: none;
+    font-weight: 500; font-size: 0.9rem; transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--charcoal); color: white; }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    background: var(--charcoal); border-radius: 24px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 2rem 1.5rem; gap: 1.4rem;
+  }
+  .hero-visual-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?fm=jpg&q=60&w=800&auto=format&fit=crop') center/cover no-repeat;
+    opacity: 0.1;
+  }
+  .hero-profile {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center; gap: 1rem; width: 100%;
+  }
+  .avatar-circle {
+    width: 120px; height: 120px; border-radius: 50%; overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.2); flex-shrink: 0;
+  }
+  .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--white); }
+  .hero-title { font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem; font-weight: 300; }
+  .hero-cards {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; width: 100%;
+  }
+  .hero-card-item {
+    background: var(--white); border-radius: 10px; padding: 0.6rem 0.8rem;
+    font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;
+    box-shadow: 0 2px 12px rgba(46,42,36,0.15); line-height: 1.3;
+  }
+  .hero-card-item span { font-size: 0.95rem; flex-shrink: 0; }
+
+  /* SECTION HEADERS */
+  .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.8rem; display: block; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.6rem; color: var(--charcoal); line-height: 1.3; }
+  .section-sub { color: var(--text-mid); font-size: 0.95rem; max-width: 540px; line-height: 1.8; font-weight: 300; }
+
+  /* WHY */
+  #why { background: var(--white); }
+  .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
+  .pain-card { background: var(--warm-gray); border-radius: 16px; padding: 1.6rem; border: 1px solid var(--border); }
+  .pain-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+  .pain-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--charcoal); }
+  .pain-card p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+
+  /* SERVICES */
+  #services { background: var(--cream); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+  .service-card {
+    background: var(--white); border-radius: 16px; padding: 1.6rem;
+    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(92,78,61,0.08); }
+  .service-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .service-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--charcoal); }
+  .service-card > p { color: var(--text-mid); font-size: 0.82rem; line-height: 1.7; flex: 1; font-weight: 300; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+  .skill-tag { background: var(--warm-gray); border: 1px solid var(--border); color: var(--text-mid); padding: 0.22rem 0.65rem; border-radius: 100px; font-size: 0.72rem; }
+  .services-cta {
+    margin-top: 3rem; background: var(--charcoal);
+    border-radius: 20px; padding: 2.4rem 2rem; text-align: center;
+  }
+  .services-cta p { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 1.4rem; line-height: 1.8; font-weight: 300; }
+  .services-cta p strong { color: white; font-weight: 600; }
+  .btn-cta {
+    display: inline-block; background: var(--rose); color: #fff;
+    padding: 0.9rem 2.4rem; border-radius: 100px; text-decoration: none;
+    font-weight: 600; font-size: 0.95rem; transition: opacity 0.2s;
+  }
+  .btn-cta:hover { opacity: 0.85; }
+  .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.9rem; }
+
+  /* WORKS */
+  #works { background: var(--white); }
+  .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+  .work-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--white); transition: transform 0.2s, box-shadow 0.2s; }
+  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(92,78,61,0.08); }
+  .work-header { padding: 1.4rem 1.5rem 1rem; }
+  .work-header.h-rose { background: var(--rose-pale); }
+  .work-header.h-sage { background: var(--sage-pale); }
+  .work-cat { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .work-cat.c-rose { color: var(--rose); }
+  .work-cat.c-sage { color: var(--sage); }
+  .work-header h3 { font-size: 0.92rem; font-weight: 500; line-height: 1.5; color: var(--charcoal); }
+  .work-body { padding: 1.2rem 1.5rem 1.5rem; }
+  .work-body p { color: var(--text-mid); font-size: 0.83rem; line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+  .work-stats { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; color: var(--rose); display: block; line-height: 1; }
+  .stat-label { font-size: 0.68rem; color: var(--text-light); margin-top: 0.3rem; }
+
+  /* ABOUT */
+  #about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .about-img {
+    border-radius: 20px; height: 360px; overflow: hidden;
+    background: url('https://images.unsplash.com/photo-1656660364352-3a504c39bde2?fm=jpg&q=60&w=600&auto=format&fit=crop') center/cover no-repeat;
+  }
+  .about-text p { color: var(--text-mid); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.9; font-weight: 300; }
+  .about-text strong { color: var(--charcoal); font-weight: 600; }
+  .about-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .badge { background: var(--white); border: 1px solid var(--border); color: var(--text-mid); padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.78rem; }
+
+  /* CONTACT */
+  #contact { background: var(--rose-pale); text-align: center; }
+  #contact .section-label { color: var(--rose); }
+  #contact .section-title { color: var(--charcoal); margin: 0 auto 0.6rem; }
+  #contact .section-sub { color: var(--text-mid); margin: 0 auto 2rem; }
+  .btn-dark { display: inline-block; background: var(--rose); color: white; padding: 0.9rem 2.4rem; border-radius: 100px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: opacity 0.2s; }
+  .btn-dark:hover { opacity: 0.85; }
+  .contact-note { margin-top: 1.2rem; font-size: 0.8rem; color: var(--text-light); }
+  .contact-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2rem; }
+  .contact-tag { background: white; color: var(--text-mid); padding: 0.35rem 1rem; border-radius: 100px; font-size: 0.8rem; border: 1px solid var(--border); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.3); text-align: center; padding: 2rem; font-size: 0.78rem; }
+
+  @media (max-width: 768px) {
+    .nav-cta { display: none !important; }
+    nav { padding: 0 1rem; }
+    .nav-logo { font-size: 0.9rem; }
+    .nav-links { gap: 0.8rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .nav-cta { display: none; }
+    .nav-lang { font-size: 0.72rem; padding: 0.2rem 0.6rem; }
+    section { padding: 56px 1.2rem; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero h1 { font-size: 2rem; line-height: 1.3; }
+    .hero p { font-size: 0.95rem; }
+    .hero-btns { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-outline { text-align: center; font-size: 0.9rem; }
+    .section-title { font-size: 1.5rem; }
+    .section-sub { font-size: 0.88rem; }
+    .pain-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .pain-card { padding: 1.3rem; }
+    .pain-card h3 { font-size: 0.95rem; }
+    .pain-card p { font-size: 0.85rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .service-card { padding: 1.3rem; }
+    .service-card h3 { font-size: 0.95rem; }
+    .service-card > p { font-size: 0.85rem; }
+    .services-cta { padding: 1.8rem 1.2rem; }
+    .services-cta p { font-size: 0.88rem; }
+    .btn-cta { font-size: 0.9rem; padding: 0.8rem 1.8rem; }
+    .works-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .work-header h3 { font-size: 0.9rem; }
+    .work-body p { font-size: 0.85rem; }
+    .stat-num { font-size: 1.3rem; }
+    .stat-label { font-size: 0.7rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-img { height: 260px; }
+    .about-text p { font-size: 0.88rem; }
+    .about-badges { gap: 0.4rem; }
+    .badge { font-size: 0.75rem; padding: 0.3rem 0.75rem; }
+    #contact .section-title { font-size: 1.4rem; }
+    #contact .section-sub { font-size: 0.88rem; }
+    .contact-tags { gap: 0.4rem; }
+    .contact-tag { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+    .btn-dark { font-size: 0.9rem; padding: 0.8rem 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Nana Bridge Studio</div>
+    <ul class="nav-links">
+      <li><a href="#why">Why Japan</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#works">Results</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://calendly.com/nanaoba/introductory-call-nana" target="_blank" class="nav-cta">Book a Free Call</a></li>
+    </ul>
+    <a href="/index.html" class="nav-lang">日本語</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner container">
+    <div class="hero-text">
+      <div class="hero-tag">Japan Market Ads Specialist</div>
+      <h1>Your <span>bridge</span> into the Japanese market.</h1>
+      <p>I help international businesses launch and grow in Japan through paid ads, localisation, and conversion-focused marketing strategy — without guesswork or language barriers.</p>
+      <div class="hero-btns">
+        <a href="https://calendly.com/nanaoba/introductory-call-nana" target="_blank" class="btn-primary">Book a Free Strategy Call →</a>
+        <a href="#works" class="btn-outline">See Results</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-bg"></div>
+      <div class="hero-profile">
+        <div class="avatar-circle">
+          <img src="https://erihauck.com/service/wp-content/uploads/2026/04/Screenshot-2025-06-14-at-12.46.50.png" alt="Nana Oba">
+        </div>
+        <div>
+          <div class="hero-name">Nana Oba</div>
+          <div class="hero-title">Japan Market Ads Specialist</div>
+        </div>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-card-item" style="color:var(--rose);"><span>📊</span>CPA cut by 50%</div>
+        <div class="hero-card-item" style="color:var(--sage);"><span>🌏</span>8 Yrs Intl Business</div>
+        <div class="hero-card-item" style="color:var(--charcoal);"><span>🚀</span>Revenue ×16 in 2 months</div>
+        <div class="hero-card-item" style="color:var(--text-mid);"><span>🇯🇵</span>Japan Market Expert</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <span class="section-label">The Challenge</span>
+    <h2 class="section-title">Japan is a unique market.<br>Here's why it's hard to crack alone.</h2>
+    <p class="section-sub">Japan is the world's third-largest economy — but entering it without local expertise is costly and slow.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="pain-icon">🗾</span>
+        <h3>Platforms are different</h3>
+        <p>Yahoo! Japan holds significant ad market share alongside Google. Meta works differently here. Knowing which platform fits your product matters.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">🈳</span>
+        <h3>Language isn't just translation</h3>
+        <p>Japanese consumers respond to tone, nuance, and context. A word-for-word translation rarely converts. You need copy and messaging that feels native.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">🔗</span>
+        <h3>The funnel is different</h3>
+        <p>LINE dominates CRM. Trust is built slowly. The customer journey in Japan requires a different approach to nurturing and conversion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <span class="section-label">Services</span>
+    <h2 class="section-title">Marketing support for entering<br>and growing in Japan</h2>
+    <p class="section-sub">I help international businesses advertise and convert in Japan — as a hands-on marketing partner, not just an agency.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">📣</span>
+        <h3>Japan Ad Management</h3>
+        <p>End-to-end support for Google Ads, Yahoo Japan Ads, and Meta Ads in Japan — including campaign structure, Japanese ad copy direction, keyword and search query analysis, KPI review, optimisation, and English reporting.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Google Ads</span>
+          <span class="skill-tag">Yahoo Japan Ads</span>
+          <span class="skill-tag">Meta Ads</span>
+          <span class="skill-tag">Search Query Analysis</span>
+          <span class="skill-tag">CPA Optimisation</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌐</span>
+        <h3>Full Japan Market Entry</h3>
+        <p>Launching in Japan from scratch? I support the marketing strategy behind your Japan entry — from paid ads and localisation to funnel planning, KPI design, and launch priorities.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Japan Market Entry</span>
+          <span class="skill-tag">Paid Media Strategy</span>
+          <span class="skill-tag">Localisation Review</span>
+          <span class="skill-tag">Funnel Strategy</span>
+          <span class="skill-tag">KPI Planning</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📄</span>
+        <h3>Landing Page & Funnel Audit</h3>
+        <p>Getting traffic but not converting? I can review your Japanese landing page and user journey from a marketing perspective, identify possible drop-off points, and provide clear recommendations.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Funnel Audit</span>
+          <span class="skill-tag">CVR Improvement</span>
+          <span class="skill-tag">Japanese Copy Review</span>
+          <span class="skill-tag">CTA Review</span>
+          <span class="skill-tag">Conversion Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="services-cta">
+      <p><strong>Let's discuss your Japan marketing strategy.</strong><br>If you are planning to advertise in Japan or want to improve your current campaigns, I can help you identify the right next steps based on your goals and market situation.</p>
+      <a href="https://calendly.com/nanaoba/introductory-call-nana" target="_blank" class="btn-cta">Book a Free Strategy Call →</a>
+      <p class="cta-note">1 hour · Google Meet · No commitment</p>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="container">
+    <span class="section-label">Results</span>
+    <h2 class="section-title">Real outcomes, in plain numbers.</h2>
+    <p class="section-sub">Every result below came from strategic decisions, not luck.</p>
+    <div class="works-grid">
+      <div class="work-card">
+        <div class="work-header h-rose">
+          <div class="work-cat c-rose">Market Entry Strategy · Overseas Client</div>
+          <h3>Planned and managed a patient acquisition strategy for a dental clinic launching abroad</h3>
+        </div>
+        <div class="work-body">
+          <p>A Japanese dentist opening a clinic overseas needed to attract patients before launch. I supported the acquisition strategy across Google and Meta ads, Instagram content direction, Google Business Profile, LINE funnel planning, and landing page messaging.</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">0 →</span><span class="stat-label">Strategy built pre-launch</span></div>
+            <div class="stat"><span class="stat-num">🌏</span><span class="stat-label">English-language campaigns</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-header h-sage">
+          <div class="work-cat c-sage">Ad Management · Japan Market</div>
+          <h3>Reduced CPA by 50% within 3 months for a national care services provider</h3>
+        </div>
+        <div class="work-body">
+          <p>Managed multi-platform ad operations for a national care services provider across Japan. Through daily data analysis and systematic testing, we halved the cost per acquisition in 3 months and hit the target volume within 6 months. Monthly budget: ¥20M+.</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">−50%</span><span class="stat-label">CPA in 3 months</span></div>
+            <div class="stat"><span class="stat-num">¥20M+</span><span class="stat-label">Monthly budget managed</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-header h-rose">
+          <div class="work-cat c-rose">Ad Management · SaaS / Subscription</div>
+          <h3>Revenue grew 4x in month one. Then 4x again.</h3>
+        </div>
+        <div class="work-body">
+          <p>Took over Yahoo Japan ad management for a subscription-based web content service. Within the first month, revenue grew 4x. The following month, it grew 4x again — resulting in 16x revenue growth over two months through rapid testing, keyword optimisation, and campaign restructuring.</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">×4</span><span class="stat-label">Revenue growth, month 1</span></div>
+            <div class="stat"><span class="stat-num">×16</span><span class="stat-label">Revenue growth over 2 months</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-header h-sage">
+          <div class="work-cat c-sage">Funnel Audit · E-commerce</div>
+          <h3>Audited a low-converting landing page and identified key funnel issues</h3>
+        </div>
+        <div class="work-body">
+          <p>An e-commerce brand had traffic but poor conversion. I reviewed the landing page from a marketing and user journey perspective, identified likely drop-off points, and delivered a prioritised action plan with copy, offer, CTA, and layout recommendations.</p>
+          <div class="work-stats">
+            <div class="stat"><span class="stat-num">📋</span><span class="stat-label">Funnel audit delivered</span></div>
+            <div class="stat"><span class="stat-num">↑</span><span class="stat-label">Conversion rate improved</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">I've lived and worked on both sides.</h2>
+    <p class="section-sub">That's what makes the difference.</p>
+    <div class="about-grid">
+      <div class="about-img"></div>
+      <div class="about-text">
+        <p>I'm a bilingual Japan market ads specialist based in Japan, with <strong>8 years of international business experience across Bangkok and Singapore</strong>. I understand how international businesses think — and how Japanese consumers behave.</p>
+        <p>My background spans <strong>top-performing sales, international business, and performance marketing</strong>, which means I don't just run ads — I think about the full customer journey, from first click to conversion, with both analytical and customer-focused eyes.</p>
+        <p>I've managed over ¥20M/month in ad spend across multiple platforms, supported businesses entering overseas markets from zero, and run English-language ad campaigns for Japanese brands expanding abroad.</p>
+        <p>A turning point in my life led me to commit to living each day as my best — on my own terms. Since then, I've backpacked across South America, built new business ideas from scratch, and chosen a path I've designed myself.</p>
+        <p>I want to be someone who walks alongside you toward your goals. I'll take care of your brand's vision, dig into the numbers honestly, and show up with both integrity and flexibility — because real partnership means moving in the same direction, together.</p>
+        <div class="about-badges">
+          <span class="badge">🇯🇵 Native Japanese</span>
+          <span class="badge">🇬🇧 Fluent English</span>
+          <span class="badge">🌏 Bangkok · Singapore</span>
+          <span class="badge">💼 Sales background</span>
+          <span class="badge">📊 Performance Marketing</span>
+          <span class="badge">📈 ¥20M+/month ad experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">Let's talk about your Japan strategy.</h2>
+    <p class="section-sub">Whether you're just exploring or ready to launch — drop me a message and let's find a time to talk.</p>
+    <div class="contact-tags">
+      <span class="contact-tag">✅ New to Japan? Welcome.</span>
+      <span class="contact-tag">✅ English-first communication</span>
+      <span class="contact-tag">✅ Transparent reporting</span>
+      <span class="contact-tag">✅ No jargon, no fluff</span>
+    </div>
+    <a href="mailto:your@email.com" class="btn-dark">Send a Message →</a>
+    <p class="contact-note">Response within 1 business day · Google Meet available</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Nana Bridge Studio. All rights reserved. · <a href="/index.html" style="color:rgba(255,255,255,0.25);">日本語版はこちら</a></p>
+</footer>
+</body>
+</html>
